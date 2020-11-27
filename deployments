@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webapps
+  labels:
+    app: webapps
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: webapps
+  template:
+    metadata:
+      labels:
+        app: webapps
+    spec:
+      containers:
+      - name: webapps
+        image: gcr.io/my-first-prjec-t/devops-image@sha256:f98ba072dec4420fe40207b2ec2dff912a2f67942d73a3aa6fadc1413d11a509
+        ports:
+        - containerPort: 8080
